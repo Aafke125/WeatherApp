@@ -3,25 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="src/stylesheet.css" />
   <title>WeatherApp!</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 <body>
   <header>
+    <div class="image-container"></div>
+    
     <form>
-      <input type="search" name="Enter a city"/>
-      <input type="submit"/>
+      <input type="search" id="cityInput" placeholder="Enter a city" required/>
+      <input type="button" onclick="formSubmit()" value="search"/>
     </form>
   </header>
   <main>
-    <h1>Welcome to the app</h1>
+    <div class="weather-info">
+      <h1 class="location">Amsterdam</h1>
+      <div class="temperature">15<span class="celsius">°C</span></div>
+    </div>
+    <p class="current-details">
+      <span id="current-date">date and time</span>, moderate rain expexted<br />
+      with an humidity of <strong class = "strong">87%</strong>, <br /> and a wind speed of <strong class = "strong">7.2 km/h</strong>
+    </p>
+
+   <div class="weather-app">
+  <div class="days-container">
+    <span class="day">Sun</span>
+    <span class="day">Mon</span>
+    <span class="day">Tue</span>
+    <span class="day">Wed</span>
+    <span class="day">Thu</span>
+    <span class="day">Fri</span>
+    <span class="day">Sat</span>
+  </div>
+  <div class="emojis-container">
+    <span class="emoji">🌧</span>
+    <span class="emoji">⛅️</span>
+    <span class="emoji">☀️</span>
+    <span class="emoji">🌤</span>
+    <span class="emoji">⛈</span>
+    <span class="emoji">☁️</span>
+    <span class="emoji">🌦</span>
+  </div>
+  <div class="degrees-container">
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+    <span class="degrees">12°C</span>
+  </div>
+</div>
+
   </main>
-  
+  </div>
   <footer>
         <p>
           This project was coded by
           <a href="https://github.com/Aafke125" target="_blank">Aafke</a> and is
           <a href="https://github.com/Aafke125/WeatherApp" target="_blank"> on GitHub</a> and
-          <a href="meiteonapp.netlify.app" target="_blank">hosted on Netlify</a>
+          <a href="https://app.netlify.com/sites/meiteonapp/overview" target="_blank">hosted on Netlify</a>
         </p>
       </footer>
 </body>
