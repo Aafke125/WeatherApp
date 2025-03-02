@@ -3,6 +3,18 @@ body {
   background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/158/993/original/Blue_sky.jpg?1740837782');
   font-family: 'Murecho', sans-serif;
 }
+
+.search-form-input {
+  display:block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 250px;
+  outline: none;
+}
+
 .weather-app {
   background: rgba(0, 22, 56, 0.2);
   max-width: 600px;
