@@ -15,15 +15,15 @@
 <body>
   <header>
     <div class="image-container">
-    <form class="search-form">
-      <input class="search-form-input" type="search" id="cityInput" placeholder="Enter a city" required/>
-      <input class="search-form-button"type="button" onclick="formSubmit()" value="search"/>
+    <form class="search-form" id="search-form">
+      <input class="search-form-input" type="search" id="search-form-input" placeholder="Enter a city" required/>
+      <button class="search-form-button" type="submit">Search</button>
     </form>
     </div>
   </header>
   <main>
     <div class="weather-info">
-      <h1 class="location">Amsterdam</h1>
+      <h1 class="location" id="location">Amsterdam</h1>
       <div class="temperature">15<span class="celsius">°C</span></div>
     </div>
     <p class="current-details">
