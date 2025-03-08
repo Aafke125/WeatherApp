@@ -17,7 +17,9 @@ function searchSubmit(event) {
   //let cityElement = document.querySelector("#location"); >> transferred to refreshTemp function
   //cityElement.innerHTML = searchInput.value; >> transferred to refreshTemp function
   searchCity(searchInput.value); // value of the search input (by the user) is going to be sent to the function searchCity >> you are receiving a city The city goes inside the function searchCity
+  
 }
+
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", searchSubmit);

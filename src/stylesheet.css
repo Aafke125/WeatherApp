@@ -5,8 +5,8 @@ body {
 }
 
 .image-container {
-  display: flex; /* Make it a flex container */
-  justify-content: center; /* Center horizontally */
+  display: flex;
+  justify-content: center;
   align-items: center; /* Align items vertically */
   width: 100%; /* Ensure it spans full width */
   margin: 0 auto;
@@ -18,7 +18,7 @@ body {
   gap: 5px;
 }
 
-.search-form-input {
+.search-form-input { 
   background-color: rgba(235, 241, 251, 0.2);
   display:block;
   margin: 0 auto;
@@ -28,6 +28,11 @@ body {
   font-size: 16px;
   width: 300px;
   outline: none;
+  color: #fff; /* Sets the text color for user input */
+  font-family: 'Murecho', sans-serif;
+  font-weight: 250;
+  letter-spacing: 1px;
+  opacity: 1;
 }
 
 ::placeholder {
@@ -148,4 +153,8 @@ a:visited {
   display: flex;
   justify-content: space-evenly;
   width: 100%; 
+}
+
+.link {
+  text-decoration-line: none;
 }
