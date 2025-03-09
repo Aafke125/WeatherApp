@@ -1,6 +1,6 @@
 
 body {
-  background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/158/993/original/Blue_sky.jpg?1740837782');
+  background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/159/637/original/Blue_sky_higher.jpg?1741505569https://s3.amazonaws.com/shecodesio-production/uploads/files/000/159/643/original/Blue_sky_highest.jpg?1741506067');
   font-family: 'Murecho', sans-serif;
 }
 
@@ -33,6 +33,15 @@ body {
   font-weight: 250;
   letter-spacing: 1px;
   opacity: 1;
+}
+
+.search-form-input:focus {
+  background-color: rgba(235, 241, 251, 0.2);
+  color: #fff;
+  outline: none;
+  font-family: 'Murecho', sans-serif;
+  font-weight: 250;
+  letter-spacing: 1px;
 }
 
 ::placeholder {
