@@ -106,6 +106,13 @@ body {
   top: -35px;
 }
 
+.emoji {
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  top: -1px;
+}
+
 .current-details {
   letter-spacing: 1px;
   font-weight: 200;

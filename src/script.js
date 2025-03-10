@@ -8,6 +8,9 @@ function refreshTemp(response) {
   let conditionElement = document.querySelector("#condition");
   conditionElement.innerHTML = response.data.condition.description;
 
+  let emojiElement = document.querySelector("#emoji");
+  emojiElement.innerHTML = response.data.condition.icon;
+
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;
 
@@ -22,13 +25,13 @@ function refreshTemp(response) {
   let day = days[date.getDay()];
 
   let hours = date.getHours();
-  
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`; // Ensure two digits for minutes
   }
   
-  timeElement.innerHTML = `${day} ${hours}:${minutes}`;
+  timeElement.innerHTML = `${day} <strong class="strong">${hours}:${minutes}</strong>`;
   console.log(response.data);
 }
 
