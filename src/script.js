@@ -9,7 +9,7 @@ function refreshTemp(response) {
   conditionElement.innerHTML = response.data.condition.description;
 
   let emojiElement = document.querySelector("#emoji");
-  emojiElement.innerHTML = response.data.condition.icon;
+  emojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="emoji"/>`;
 
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.temperature.humidity;

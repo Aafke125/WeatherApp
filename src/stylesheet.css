@@ -107,10 +107,9 @@ body {
 }
 
 .emoji {
-  font-size: 15px;
-  text-align: center;
+  width: 25px;
   position: relative;
-  top: -1px;
+  top: 3px;
 }
 
 .current-details {
