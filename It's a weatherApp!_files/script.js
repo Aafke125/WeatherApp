@@ -50,34 +50,7 @@ function searchSubmit(event) {
   
 }
 
-function displayForecast() {
-  let forecastBox = document.querySelector(".forecast-box"); // Select the single box
-
-  let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-  let forecastHTML = `<div class="forecast-row">`; // Start the row container
-
-  days.forEach(function (day) {
-    forecastHTML += `
-      <div class="forecast-day">
-        <span class="day">${day}</span>
-        <span class="emojis">🌧</span>
-        <div class="temperature-container">
-          <span class="high">12°</span>
-          <span class="low">16°</span>
-        </div>
-      </div>
-    `;
-  });
-
-  forecastHTML += `</div>`; // Close the row container
-  forecastBox.innerHTML = forecastHTML; // Insert content inside the single box
-}
-
-displayForecast();
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", searchSubmit);
 
 searchCity("Bangkok"); 
-
-
-
-
