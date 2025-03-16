@@ -42,6 +42,24 @@ function searchCity(city) { // function to make the API call and update the inte
   axios.get(apiUrl).then(refreshTemp);
 }
 
+function searchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-form-input");
+  //let cityElement = document.querySelector("#location"); >> transferred to refreshTemp function
+  //cityElement.innerHTML = searchInput.value; >> transferred to refreshTemp function
+  searchCity(searchInput.value); // value of the search input (by the user) is going to be sent to the function searchCity >> you are receiving a city The city goes inside the function searchCity
+}
+
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", searchSubmit);
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[date.getDay()];
+}
+
 function getForecast(city) {
   let apiKey = "cc05e6fc059ab2a432b067tfa63aoa4b";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -49,38 +67,30 @@ function getForecast(city) {
   console.log(apiUrl);
 }
 
-function searchSubmit(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-form-input");
-  //let cityElement = document.querySelector("#location"); >> transferred to refreshTemp function
-  //cityElement.innerHTML = searchInput.value; >> transferred to refreshTemp function
-  searchCity(searchInput.value); // value of the search input (by the user) is going to be sent to the function searchCity >> you are receiving a city The city goes inside the function searchCity
-  
-}
-
-let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", searchSubmit);
-
 function displayForecast(response) {
   console.log(response.data);
   let forecastBox = document.querySelector(".forecast-box"); // Select the single box
 
-  let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  //let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   let forecastHTML = `<div class="forecast-row">`; // Start the row container
 
-  days.forEach(function (day) {
-    forecastHTML += `
-      <div class="forecast-day">
-        <span class="day">${day}</span>
-        <span class="emojis">🌧</span>
-        <div class="temperature-container">
-          <span class="high">12°</span>
-          <span class="low">16°</span>
-        </div>
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+  forecastHTML += `
+    <div class="forecast-day">
+      <span class="day">${formatDay(day.time)}</span>
+      <span class="emojis">
+        <img src="${day.condition.icon_url}" />
+      </span>
+      <div class="temperature-container">
+        <span class="high">${Math.round(day.temperature.maximum)}°</span>
+        <span class="low">${Math.round(day.temperature.minimum)}°</span>
       </div>
-    `;
-  });
+    </div>
+  `;
+   } 
+});
 
   forecastHTML += `</div>`; // Close the row container
   forecastBox.innerHTML = forecastHTML; // Insert content inside the single box

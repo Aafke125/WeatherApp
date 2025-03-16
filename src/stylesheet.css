@@ -172,6 +172,7 @@ a:visited {
   align-items: center;
   text-align: center;
   line-height: 200%;
+  gap: 5px; /* Add spacing between elements */
 }
 
 .day {
@@ -187,22 +188,29 @@ a:visited {
 .temperature-container {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 15px;
   width: 100%;
 }
 
-.high, .low {
+.high {
+  color: #4acaf8;
+  font-weight: 350;
+  font-size: 18px;
+  text-align: center;
+}
+
+.low {
   color: #fff;
   font-weight: 250;
   font-size: 18px;
   text-align: center;
 }
 
-.emojis {
-  display: flex;
-  justify-content: space-evenly;
-  width: 100%;
-  margin-bottom: 10px;  
+.emojis img {
+  width: 40px; /* Adjust the emoji size >> can also be 40% */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .link {
