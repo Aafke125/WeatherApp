@@ -17,28 +17,36 @@ function refreshTemp(response) {
   let windElement = document.querySelector("#wind-speed");
   windElement.innerHTML = response.data.wind.speed;
 
-  let timeElement = document.querySelector("#current-date"); // Convert timestamp from API to a readable date/time
-  let timestamp = response.data.time * 1000; // Convert to milliseconds
+  let timeElement = document.querySelector("#current-date"); 
+  let timestamp = response.data.time * 1000; 
   let date = new Date(timestamp);
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];// Format the date
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
-
   let hours = date.getHours();
-
   let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`; // Ensure two digits for minutes
-  }
   
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   timeElement.innerHTML = `${day} <strong class="strong">${hours}:${minutes}</strong>`;
-  console.log(response.data);
+
+  // ✅ Always call getForecast after setting the time
+  getForecast(response.data.city);
 }
 
 function searchCity(city) { // function to make the API call and update the interface after you received a city from searchSubmit
   let apiKey = "cc05e6fc059ab2a432b067tfa63aoa4b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(refreshTemp);
+}
+
+function getForecast(city) {
+  let apiKey = "cc05e6fc059ab2a432b067tfa63aoa4b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+  console.log(apiUrl);
 }
 
 function searchSubmit(event) {
@@ -50,7 +58,11 @@ function searchSubmit(event) {
   
 }
 
-function displayForecast() {
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", searchSubmit);
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastBox = document.querySelector(".forecast-box"); // Select the single box
 
   let days = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -74,9 +86,11 @@ function displayForecast() {
   forecastBox.innerHTML = forecastHTML; // Insert content inside the single box
 }
 
-displayForecast();
 
-searchCity("Bangkok"); 
+
+searchCity("Bangkok");
+
+
 
 
 
